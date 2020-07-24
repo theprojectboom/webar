@@ -1,11 +1,7 @@
-## Project Boom's AR Bid
+## Project Boom's AR Viewer
 
-### Deliverables
-- Provide a reasonable assessment of the viability of the use of Augmented Reality for
-Project Boom validated by preliminary analysis including but not limited to:
-  - Cost Analysis
-  - OS Specific Requirements
-  - Hardware & Software Requirements
-  - Actual Usefulness
-  - etc..
-- Produce a working AR presentation of a given CAD file(s) of an aircraft concept
+### Browser Support & Requirements
+
+__Desktop (3D Model Viewer Only):__ Chrome, Internet Explorer 11, FireFox
+__iOS:__ Safari, iOS 11 (or later)
+__Android:__ Chrome, Android Oreo (8.0) or later

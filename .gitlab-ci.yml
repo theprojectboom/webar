@@ -4,7 +4,7 @@ before_script:
   - apk update
   - apk add rsync openssh
 
-pages:
+upload:
   stage: deploy
   script:
   - echo "${SSH_PRIVATE_KEY}" > id_rsa
@@ -13,6 +13,5 @@ pages:
   - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
   - rsync -hrvz --delete --exclude='boom' --exclude='id_rsa' --exclude='.ssh' --exclude='\..*' -e 'ssh -i id_rsa' * uav@tsunami.ocf.berkeley.edu:~/public_html/boom/ar/
 
-only:
-  - master
-
+  only:
+    - master

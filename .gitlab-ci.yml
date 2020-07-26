@@ -1,8 +1,8 @@
 image: alpine:latest
 
 before_script:
-  - apt-get update
-  - apt-get --yes --force-yes install rsync ssh
+  - apk update
+  - apk add rsync openssh
 
 pages:
   stage: deploy
@@ -11,7 +11,7 @@ pages:
   - chmod 400 id_rsa
   - mkdir "${HOME}/.ssh"
   - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
-  - rsync -hrvz --delete --exclude='boom' --exclude='\..*' -e 'ssh -i id_rsa' * uav@tsunami.ocf.berkeley.edu:~/public_html/boom/ar/
+  - rsync -hrvz --delete --exclude='boom' --exclude='id_rsa' --exclude='.ssh' --exclude='\..*' -e 'ssh -i id_rsa' * uav@tsunami.ocf.berkeley.edu:~/public_html/boom/ar/
 
   artifacts:
     paths:
